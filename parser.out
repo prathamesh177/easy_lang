@@ -1,0 +1,2234 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMA
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statements
+Rule 2     statements -> statements statement
+Rule 3     statements -> statement
+Rule 4     statement -> IDENTIFIER EQUALS expression SEMICOLON
+Rule 5     statement -> PRINT expression SEMICOLON
+Rule 6     statement -> IF expression LBRACE statements RBRACE
+Rule 7     statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+Rule 8     statement -> WHILE expression LBRACE statements RBRACE
+Rule 9     statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+Rule 10    expression -> expression PLUS expression
+Rule 11    expression -> expression MINUS expression
+Rule 12    expression -> expression MULTIPLY expression
+Rule 13    expression -> expression DIVIDE expression
+Rule 14    expression -> expression AND expression
+Rule 15    expression -> expression OR expression
+Rule 16    expression -> expression EQUAL expression
+Rule 17    expression -> expression NOTEQUAL expression
+Rule 18    expression -> expression LESS expression
+Rule 19    expression -> expression GREATER expression
+Rule 20    expression -> expression LESSEQUAL expression
+Rule 21    expression -> expression GREATEREQUAL expression
+Rule 22    expression -> NOT expression
+Rule 23    expression -> NUMBER
+Rule 24    expression -> STRING
+Rule 25    expression -> TRUE
+Rule 26    expression -> FALSE
+Rule 27    expression -> IDENTIFIER
+Rule 28    expression -> LPAREN expression RPAREN
+Rule 29    expression -> MINUS expression
+
+Terminals, with rules where they appear
+
+AND                  : 14
+COMMA                : 
+DIVIDE               : 13
+ELSE                 : 7
+EQUAL                : 16
+EQUALS               : 4 9 9
+FALSE                : 26
+FOR                  : 9
+GREATER              : 19
+GREATEREQUAL         : 21
+IDENTIFIER           : 4 9 9 27
+IF                   : 6 7
+LBRACE               : 6 7 7 8 9
+LESS                 : 18
+LESSEQUAL            : 20
+LPAREN               : 28
+MINUS                : 11 29
+MULTIPLY             : 12
+NOT                  : 22
+NOTEQUAL             : 17
+NUMBER               : 23
+OR                   : 15
+PLUS                 : 10
+PRINT                : 5
+RBRACE               : 6 7 7 8 9
+RPAREN               : 28
+SEMICOLON            : 4 5 9 9
+STRING               : 24
+TRUE                 : 25
+WHILE                : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 4 5 6 7 8 9 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 28 29
+program              : 0
+statement            : 2 3
+statements           : 1 2 6 7 7 8 9
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    program                        shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statements .
+    (2) statements -> statements . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    $end            reduce using rule 1 (program -> statements .)
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 3
+
+    (3) statements -> statement .
+
+    IDENTIFIER      reduce using rule 3 (statements -> statement .)
+    PRINT           reduce using rule 3 (statements -> statement .)
+    IF              reduce using rule 3 (statements -> statement .)
+    WHILE           reduce using rule 3 (statements -> statement .)
+    FOR             reduce using rule 3 (statements -> statement .)
+    $end            reduce using rule 3 (statements -> statement .)
+    RBRACE          reduce using rule 3 (statements -> statement .)
+
+
+state 4
+
+    (4) statement -> IDENTIFIER . EQUALS expression SEMICOLON
+
+    EQUALS          shift and go to state 10
+
+
+state 5
+
+    (5) statement -> PRINT . expression SEMICOLON
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 11
+
+state 6
+
+    (6) statement -> IF . expression LBRACE statements RBRACE
+    (7) statement -> IF . expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 20
+
+state 7
+
+    (8) statement -> WHILE . expression LBRACE statements RBRACE
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 21
+
+state 8
+
+    (9) statement -> FOR . IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 22
+
+
+state 9
+
+    (2) statements -> statements statement .
+
+    IDENTIFIER      reduce using rule 2 (statements -> statements statement .)
+    PRINT           reduce using rule 2 (statements -> statements statement .)
+    IF              reduce using rule 2 (statements -> statements statement .)
+    WHILE           reduce using rule 2 (statements -> statements statement .)
+    FOR             reduce using rule 2 (statements -> statements statement .)
+    $end            reduce using rule 2 (statements -> statements statement .)
+    RBRACE          reduce using rule 2 (statements -> statements statement .)
+
+
+state 10
+
+    (4) statement -> IDENTIFIER EQUALS . expression SEMICOLON
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 23
+
+state 11
+
+    (5) statement -> PRINT expression . SEMICOLON
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 24
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 12
+
+    (29) expression -> MINUS . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 37
+
+state 13
+
+    (22) expression -> NOT . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 38
+
+state 14
+
+    (23) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 23 (expression -> NUMBER .)
+    PLUS            reduce using rule 23 (expression -> NUMBER .)
+    MINUS           reduce using rule 23 (expression -> NUMBER .)
+    MULTIPLY        reduce using rule 23 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 23 (expression -> NUMBER .)
+    AND             reduce using rule 23 (expression -> NUMBER .)
+    OR              reduce using rule 23 (expression -> NUMBER .)
+    EQUAL           reduce using rule 23 (expression -> NUMBER .)
+    NOTEQUAL        reduce using rule 23 (expression -> NUMBER .)
+    LESS            reduce using rule 23 (expression -> NUMBER .)
+    GREATER         reduce using rule 23 (expression -> NUMBER .)
+    LESSEQUAL       reduce using rule 23 (expression -> NUMBER .)
+    GREATEREQUAL    reduce using rule 23 (expression -> NUMBER .)
+    LBRACE          reduce using rule 23 (expression -> NUMBER .)
+    RPAREN          reduce using rule 23 (expression -> NUMBER .)
+
+
+state 15
+
+    (24) expression -> STRING .
+
+    SEMICOLON       reduce using rule 24 (expression -> STRING .)
+    PLUS            reduce using rule 24 (expression -> STRING .)
+    MINUS           reduce using rule 24 (expression -> STRING .)
+    MULTIPLY        reduce using rule 24 (expression -> STRING .)
+    DIVIDE          reduce using rule 24 (expression -> STRING .)
+    AND             reduce using rule 24 (expression -> STRING .)
+    OR              reduce using rule 24 (expression -> STRING .)
+    EQUAL           reduce using rule 24 (expression -> STRING .)
+    NOTEQUAL        reduce using rule 24 (expression -> STRING .)
+    LESS            reduce using rule 24 (expression -> STRING .)
+    GREATER         reduce using rule 24 (expression -> STRING .)
+    LESSEQUAL       reduce using rule 24 (expression -> STRING .)
+    GREATEREQUAL    reduce using rule 24 (expression -> STRING .)
+    LBRACE          reduce using rule 24 (expression -> STRING .)
+    RPAREN          reduce using rule 24 (expression -> STRING .)
+
+
+state 16
+
+    (25) expression -> TRUE .
+
+    SEMICOLON       reduce using rule 25 (expression -> TRUE .)
+    PLUS            reduce using rule 25 (expression -> TRUE .)
+    MINUS           reduce using rule 25 (expression -> TRUE .)
+    MULTIPLY        reduce using rule 25 (expression -> TRUE .)
+    DIVIDE          reduce using rule 25 (expression -> TRUE .)
+    AND             reduce using rule 25 (expression -> TRUE .)
+    OR              reduce using rule 25 (expression -> TRUE .)
+    EQUAL           reduce using rule 25 (expression -> TRUE .)
+    NOTEQUAL        reduce using rule 25 (expression -> TRUE .)
+    LESS            reduce using rule 25 (expression -> TRUE .)
+    GREATER         reduce using rule 25 (expression -> TRUE .)
+    LESSEQUAL       reduce using rule 25 (expression -> TRUE .)
+    GREATEREQUAL    reduce using rule 25 (expression -> TRUE .)
+    LBRACE          reduce using rule 25 (expression -> TRUE .)
+    RPAREN          reduce using rule 25 (expression -> TRUE .)
+
+
+state 17
+
+    (26) expression -> FALSE .
+
+    SEMICOLON       reduce using rule 26 (expression -> FALSE .)
+    PLUS            reduce using rule 26 (expression -> FALSE .)
+    MINUS           reduce using rule 26 (expression -> FALSE .)
+    MULTIPLY        reduce using rule 26 (expression -> FALSE .)
+    DIVIDE          reduce using rule 26 (expression -> FALSE .)
+    AND             reduce using rule 26 (expression -> FALSE .)
+    OR              reduce using rule 26 (expression -> FALSE .)
+    EQUAL           reduce using rule 26 (expression -> FALSE .)
+    NOTEQUAL        reduce using rule 26 (expression -> FALSE .)
+    LESS            reduce using rule 26 (expression -> FALSE .)
+    GREATER         reduce using rule 26 (expression -> FALSE .)
+    LESSEQUAL       reduce using rule 26 (expression -> FALSE .)
+    GREATEREQUAL    reduce using rule 26 (expression -> FALSE .)
+    LBRACE          reduce using rule 26 (expression -> FALSE .)
+    RPAREN          reduce using rule 26 (expression -> FALSE .)
+
+
+state 18
+
+    (27) expression -> IDENTIFIER .
+
+    SEMICOLON       reduce using rule 27 (expression -> IDENTIFIER .)
+    PLUS            reduce using rule 27 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 27 (expression -> IDENTIFIER .)
+    MULTIPLY        reduce using rule 27 (expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 27 (expression -> IDENTIFIER .)
+    AND             reduce using rule 27 (expression -> IDENTIFIER .)
+    OR              reduce using rule 27 (expression -> IDENTIFIER .)
+    EQUAL           reduce using rule 27 (expression -> IDENTIFIER .)
+    NOTEQUAL        reduce using rule 27 (expression -> IDENTIFIER .)
+    LESS            reduce using rule 27 (expression -> IDENTIFIER .)
+    GREATER         reduce using rule 27 (expression -> IDENTIFIER .)
+    LESSEQUAL       reduce using rule 27 (expression -> IDENTIFIER .)
+    GREATEREQUAL    reduce using rule 27 (expression -> IDENTIFIER .)
+    LBRACE          reduce using rule 27 (expression -> IDENTIFIER .)
+    RPAREN          reduce using rule 27 (expression -> IDENTIFIER .)
+
+
+state 19
+
+    (28) expression -> LPAREN . expression RPAREN
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 39
+
+state 20
+
+    (6) statement -> IF expression . LBRACE statements RBRACE
+    (7) statement -> IF expression . LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    LBRACE          shift and go to state 40
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 21
+
+    (8) statement -> WHILE expression . LBRACE statements RBRACE
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    LBRACE          shift and go to state 41
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 22
+
+    (9) statement -> FOR IDENTIFIER . EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    EQUALS          shift and go to state 42
+
+
+state 23
+
+    (4) statement -> IDENTIFIER EQUALS expression . SEMICOLON
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 43
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 24
+
+    (5) statement -> PRINT expression SEMICOLON .
+
+    IDENTIFIER      reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+    PRINT           reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+    IF              reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+    WHILE           reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+    FOR             reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+    $end            reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+    RBRACE          reduce using rule 5 (statement -> PRINT expression SEMICOLON .)
+
+
+state 25
+
+    (10) expression -> expression PLUS . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 44
+
+state 26
+
+    (11) expression -> expression MINUS . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 45
+
+state 27
+
+    (12) expression -> expression MULTIPLY . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 46
+
+state 28
+
+    (13) expression -> expression DIVIDE . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 47
+
+state 29
+
+    (14) expression -> expression AND . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 48
+
+state 30
+
+    (15) expression -> expression OR . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 49
+
+state 31
+
+    (16) expression -> expression EQUAL . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 50
+
+state 32
+
+    (17) expression -> expression NOTEQUAL . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 51
+
+state 33
+
+    (18) expression -> expression LESS . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 52
+
+state 34
+
+    (19) expression -> expression GREATER . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 53
+
+state 35
+
+    (20) expression -> expression LESSEQUAL . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 54
+
+state 36
+
+    (21) expression -> expression GREATEREQUAL . expression
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 55
+
+state 37
+
+    (29) expression -> MINUS expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 29 (expression -> MINUS expression .)
+    PLUS            reduce using rule 29 (expression -> MINUS expression .)
+    MINUS           reduce using rule 29 (expression -> MINUS expression .)
+    MULTIPLY        reduce using rule 29 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 29 (expression -> MINUS expression .)
+    AND             reduce using rule 29 (expression -> MINUS expression .)
+    OR              reduce using rule 29 (expression -> MINUS expression .)
+    EQUAL           reduce using rule 29 (expression -> MINUS expression .)
+    NOTEQUAL        reduce using rule 29 (expression -> MINUS expression .)
+    LESS            reduce using rule 29 (expression -> MINUS expression .)
+    GREATER         reduce using rule 29 (expression -> MINUS expression .)
+    LESSEQUAL       reduce using rule 29 (expression -> MINUS expression .)
+    GREATEREQUAL    reduce using rule 29 (expression -> MINUS expression .)
+    LBRACE          reduce using rule 29 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 29 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 25 ]
+  ! MINUS           [ shift and go to state 26 ]
+  ! MULTIPLY        [ shift and go to state 27 ]
+  ! DIVIDE          [ shift and go to state 28 ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 38
+
+    (22) expression -> NOT expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 22 (expression -> NOT expression .)
+    AND             reduce using rule 22 (expression -> NOT expression .)
+    OR              reduce using rule 22 (expression -> NOT expression .)
+    LBRACE          reduce using rule 22 (expression -> NOT expression .)
+    RPAREN          reduce using rule 22 (expression -> NOT expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+  ! PLUS            [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! MINUS           [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! MULTIPLY        [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! DIVIDE          [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! EQUAL           [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! NOTEQUAL        [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! LESS            [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! GREATER         [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! LESSEQUAL       [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 22 (expression -> NOT expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+
+
+state 39
+
+    (28) expression -> LPAREN expression . RPAREN
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    RPAREN          shift and go to state 56
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 40
+
+    (6) statement -> IF expression LBRACE . statements RBRACE
+    (7) statement -> IF expression LBRACE . statements RBRACE ELSE LBRACE statements RBRACE
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statements                     shift and go to state 57
+    statement                      shift and go to state 3
+
+state 41
+
+    (8) statement -> WHILE expression LBRACE . statements RBRACE
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statements                     shift and go to state 58
+    statement                      shift and go to state 3
+
+state 42
+
+    (9) statement -> FOR IDENTIFIER EQUALS . expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 59
+
+state 43
+
+    (4) statement -> IDENTIFIER EQUALS expression SEMICOLON .
+
+    IDENTIFIER      reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+    PRINT           reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+    IF              reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+    WHILE           reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+    FOR             reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+    $end            reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+    RBRACE          reduce using rule 4 (statement -> IDENTIFIER EQUALS expression SEMICOLON .)
+
+
+state 44
+
+    (10) expression -> expression PLUS expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 10 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 10 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 10 (expression -> expression PLUS expression .)
+    AND             reduce using rule 10 (expression -> expression PLUS expression .)
+    OR              reduce using rule 10 (expression -> expression PLUS expression .)
+    EQUAL           reduce using rule 10 (expression -> expression PLUS expression .)
+    NOTEQUAL        reduce using rule 10 (expression -> expression PLUS expression .)
+    LESS            reduce using rule 10 (expression -> expression PLUS expression .)
+    GREATER         reduce using rule 10 (expression -> expression PLUS expression .)
+    LESSEQUAL       reduce using rule 10 (expression -> expression PLUS expression .)
+    GREATEREQUAL    reduce using rule 10 (expression -> expression PLUS expression .)
+    LBRACE          reduce using rule 10 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 10 (expression -> expression PLUS expression .)
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! MULTIPLY        [ reduce using rule 10 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 10 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 25 ]
+  ! MINUS           [ shift and go to state 26 ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 45
+
+    (11) expression -> expression MINUS expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 11 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 11 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 11 (expression -> expression MINUS expression .)
+    AND             reduce using rule 11 (expression -> expression MINUS expression .)
+    OR              reduce using rule 11 (expression -> expression MINUS expression .)
+    EQUAL           reduce using rule 11 (expression -> expression MINUS expression .)
+    NOTEQUAL        reduce using rule 11 (expression -> expression MINUS expression .)
+    LESS            reduce using rule 11 (expression -> expression MINUS expression .)
+    GREATER         reduce using rule 11 (expression -> expression MINUS expression .)
+    LESSEQUAL       reduce using rule 11 (expression -> expression MINUS expression .)
+    GREATEREQUAL    reduce using rule 11 (expression -> expression MINUS expression .)
+    LBRACE          reduce using rule 11 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 11 (expression -> expression MINUS expression .)
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! MULTIPLY        [ reduce using rule 11 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 11 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 25 ]
+  ! MINUS           [ shift and go to state 26 ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 46
+
+    (12) expression -> expression MULTIPLY expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    PLUS            reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    MINUS           reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    MULTIPLY        reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    DIVIDE          reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    AND             reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    OR              reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    EQUAL           reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    NOTEQUAL        reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    LESS            reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    GREATER         reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    LESSEQUAL       reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    GREATEREQUAL    reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    LBRACE          reduce using rule 12 (expression -> expression MULTIPLY expression .)
+    RPAREN          reduce using rule 12 (expression -> expression MULTIPLY expression .)
+
+  ! PLUS            [ shift and go to state 25 ]
+  ! MINUS           [ shift and go to state 26 ]
+  ! MULTIPLY        [ shift and go to state 27 ]
+  ! DIVIDE          [ shift and go to state 28 ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 47
+
+    (13) expression -> expression DIVIDE expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 13 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 13 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 13 (expression -> expression DIVIDE expression .)
+    MULTIPLY        reduce using rule 13 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 13 (expression -> expression DIVIDE expression .)
+    AND             reduce using rule 13 (expression -> expression DIVIDE expression .)
+    OR              reduce using rule 13 (expression -> expression DIVIDE expression .)
+    EQUAL           reduce using rule 13 (expression -> expression DIVIDE expression .)
+    NOTEQUAL        reduce using rule 13 (expression -> expression DIVIDE expression .)
+    LESS            reduce using rule 13 (expression -> expression DIVIDE expression .)
+    GREATER         reduce using rule 13 (expression -> expression DIVIDE expression .)
+    LESSEQUAL       reduce using rule 13 (expression -> expression DIVIDE expression .)
+    GREATEREQUAL    reduce using rule 13 (expression -> expression DIVIDE expression .)
+    LBRACE          reduce using rule 13 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 13 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 25 ]
+  ! MINUS           [ shift and go to state 26 ]
+  ! MULTIPLY        [ shift and go to state 27 ]
+  ! DIVIDE          [ shift and go to state 28 ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 48
+
+    (14) expression -> expression AND expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 14 (expression -> expression AND expression .)
+    AND             reduce using rule 14 (expression -> expression AND expression .)
+    OR              reduce using rule 14 (expression -> expression AND expression .)
+    LBRACE          reduce using rule 14 (expression -> expression AND expression .)
+    RPAREN          reduce using rule 14 (expression -> expression AND expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+  ! PLUS            [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! MINUS           [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! MULTIPLY        [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! DIVIDE          [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! EQUAL           [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! NOTEQUAL        [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! LESS            [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! GREATER         [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! LESSEQUAL       [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 14 (expression -> expression AND expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+
+
+state 49
+
+    (15) expression -> expression OR expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 15 (expression -> expression OR expression .)
+    OR              reduce using rule 15 (expression -> expression OR expression .)
+    LBRACE          reduce using rule 15 (expression -> expression OR expression .)
+    RPAREN          reduce using rule 15 (expression -> expression OR expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+  ! PLUS            [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! MINUS           [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! MULTIPLY        [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! DIVIDE          [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! AND             [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! EQUAL           [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! NOTEQUAL        [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! LESS            [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! GREATER         [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! LESSEQUAL       [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 15 (expression -> expression OR expression .) ]
+  ! OR              [ shift and go to state 30 ]
+
+
+state 50
+
+    (16) expression -> expression EQUAL expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 16 (expression -> expression EQUAL expression .)
+    AND             reduce using rule 16 (expression -> expression EQUAL expression .)
+    OR              reduce using rule 16 (expression -> expression EQUAL expression .)
+    EQUAL           reduce using rule 16 (expression -> expression EQUAL expression .)
+    NOTEQUAL        reduce using rule 16 (expression -> expression EQUAL expression .)
+    LESS            reduce using rule 16 (expression -> expression EQUAL expression .)
+    GREATER         reduce using rule 16 (expression -> expression EQUAL expression .)
+    LESSEQUAL       reduce using rule 16 (expression -> expression EQUAL expression .)
+    GREATEREQUAL    reduce using rule 16 (expression -> expression EQUAL expression .)
+    LBRACE          reduce using rule 16 (expression -> expression EQUAL expression .)
+    RPAREN          reduce using rule 16 (expression -> expression EQUAL expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! PLUS            [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! MULTIPLY        [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 51
+
+    (17) expression -> expression NOTEQUAL expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    AND             reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    OR              reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    EQUAL           reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    NOTEQUAL        reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LESS            reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    GREATER         reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LESSEQUAL       reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    GREATEREQUAL    reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LBRACE          reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    RPAREN          reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! PLUS            [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! MINUS           [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! MULTIPLY        [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 52
+
+    (18) expression -> expression LESS expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 18 (expression -> expression LESS expression .)
+    AND             reduce using rule 18 (expression -> expression LESS expression .)
+    OR              reduce using rule 18 (expression -> expression LESS expression .)
+    EQUAL           reduce using rule 18 (expression -> expression LESS expression .)
+    NOTEQUAL        reduce using rule 18 (expression -> expression LESS expression .)
+    LESS            reduce using rule 18 (expression -> expression LESS expression .)
+    GREATER         reduce using rule 18 (expression -> expression LESS expression .)
+    LESSEQUAL       reduce using rule 18 (expression -> expression LESS expression .)
+    GREATEREQUAL    reduce using rule 18 (expression -> expression LESS expression .)
+    LBRACE          reduce using rule 18 (expression -> expression LESS expression .)
+    RPAREN          reduce using rule 18 (expression -> expression LESS expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! PLUS            [ reduce using rule 18 (expression -> expression LESS expression .) ]
+  ! MINUS           [ reduce using rule 18 (expression -> expression LESS expression .) ]
+  ! MULTIPLY        [ reduce using rule 18 (expression -> expression LESS expression .) ]
+  ! DIVIDE          [ reduce using rule 18 (expression -> expression LESS expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 53
+
+    (19) expression -> expression GREATER expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 19 (expression -> expression GREATER expression .)
+    AND             reduce using rule 19 (expression -> expression GREATER expression .)
+    OR              reduce using rule 19 (expression -> expression GREATER expression .)
+    EQUAL           reduce using rule 19 (expression -> expression GREATER expression .)
+    NOTEQUAL        reduce using rule 19 (expression -> expression GREATER expression .)
+    LESS            reduce using rule 19 (expression -> expression GREATER expression .)
+    GREATER         reduce using rule 19 (expression -> expression GREATER expression .)
+    LESSEQUAL       reduce using rule 19 (expression -> expression GREATER expression .)
+    GREATEREQUAL    reduce using rule 19 (expression -> expression GREATER expression .)
+    LBRACE          reduce using rule 19 (expression -> expression GREATER expression .)
+    RPAREN          reduce using rule 19 (expression -> expression GREATER expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! PLUS            [ reduce using rule 19 (expression -> expression GREATER expression .) ]
+  ! MINUS           [ reduce using rule 19 (expression -> expression GREATER expression .) ]
+  ! MULTIPLY        [ reduce using rule 19 (expression -> expression GREATER expression .) ]
+  ! DIVIDE          [ reduce using rule 19 (expression -> expression GREATER expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 54
+
+    (20) expression -> expression LESSEQUAL expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    AND             reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    OR              reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    EQUAL           reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    NOTEQUAL        reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    LESS            reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    GREATER         reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    LESSEQUAL       reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    GREATEREQUAL    reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    LBRACE          reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    RPAREN          reduce using rule 20 (expression -> expression LESSEQUAL expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! PLUS            [ reduce using rule 20 (expression -> expression LESSEQUAL expression .) ]
+  ! MINUS           [ reduce using rule 20 (expression -> expression LESSEQUAL expression .) ]
+  ! MULTIPLY        [ reduce using rule 20 (expression -> expression LESSEQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 20 (expression -> expression LESSEQUAL expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 55
+
+    (21) expression -> expression GREATEREQUAL expression .
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    AND             reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    OR              reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    EQUAL           reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    NOTEQUAL        reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    LESS            reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    GREATER         reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    LESSEQUAL       reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    GREATEREQUAL    reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    LBRACE          reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    RPAREN          reduce using rule 21 (expression -> expression GREATEREQUAL expression .)
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+
+  ! PLUS            [ reduce using rule 21 (expression -> expression GREATEREQUAL expression .) ]
+  ! MINUS           [ reduce using rule 21 (expression -> expression GREATEREQUAL expression .) ]
+  ! MULTIPLY        [ reduce using rule 21 (expression -> expression GREATEREQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 21 (expression -> expression GREATEREQUAL expression .) ]
+  ! AND             [ shift and go to state 29 ]
+  ! OR              [ shift and go to state 30 ]
+  ! EQUAL           [ shift and go to state 31 ]
+  ! NOTEQUAL        [ shift and go to state 32 ]
+  ! LESS            [ shift and go to state 33 ]
+  ! GREATER         [ shift and go to state 34 ]
+  ! LESSEQUAL       [ shift and go to state 35 ]
+  ! GREATEREQUAL    [ shift and go to state 36 ]
+
+
+state 56
+
+    (28) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    MULTIPLY        reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    AND             reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    OR              reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    EQUAL           reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    NOTEQUAL        reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    LESS            reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    GREATER         reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    LESSEQUAL       reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    GREATEREQUAL    reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    LBRACE          reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 28 (expression -> LPAREN expression RPAREN .)
+
+
+state 57
+
+    (6) statement -> IF expression LBRACE statements . RBRACE
+    (7) statement -> IF expression LBRACE statements . RBRACE ELSE LBRACE statements RBRACE
+    (2) statements -> statements . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 60
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 58
+
+    (8) statement -> WHILE expression LBRACE statements . RBRACE
+    (2) statements -> statements . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 61
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 59
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression . SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 62
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 60
+
+    (6) statement -> IF expression LBRACE statements RBRACE .
+    (7) statement -> IF expression LBRACE statements RBRACE . ELSE LBRACE statements RBRACE
+
+    IDENTIFIER      reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    PRINT           reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    IF              reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    WHILE           reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    FOR             reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    $end            reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 6 (statement -> IF expression LBRACE statements RBRACE .)
+    ELSE            shift and go to state 63
+
+
+state 61
+
+    (8) statement -> WHILE expression LBRACE statements RBRACE .
+
+    IDENTIFIER      reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+    PRINT           reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+    IF              reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+    WHILE           reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+    FOR             reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+    $end            reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 8 (statement -> WHILE expression LBRACE statements RBRACE .)
+
+
+state 62
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON . expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 64
+
+state 63
+
+    (7) statement -> IF expression LBRACE statements RBRACE ELSE . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 65
+
+
+state 64
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression . SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 66
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 65
+
+    (7) statement -> IF expression LBRACE statements RBRACE ELSE LBRACE . statements RBRACE
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statements                     shift and go to state 67
+    statement                      shift and go to state 3
+
+state 66
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON . IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 68
+
+
+state 67
+
+    (7) statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements . RBRACE
+    (2) statements -> statements . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 69
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 68
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER . EQUALS expression LBRACE statements RBRACE
+
+    EQUALS          shift and go to state 70
+
+
+state 69
+
+    (7) statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .
+
+    IDENTIFIER      reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    PRINT           reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    IF              reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    WHILE           reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    FOR             reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    $end            reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 7 (statement -> IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+
+
+state 70
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS . expression LBRACE statements RBRACE
+    (10) expression -> . expression PLUS expression
+    (11) expression -> . expression MINUS expression
+    (12) expression -> . expression MULTIPLY expression
+    (13) expression -> . expression DIVIDE expression
+    (14) expression -> . expression AND expression
+    (15) expression -> . expression OR expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression LESS expression
+    (19) expression -> . expression GREATER expression
+    (20) expression -> . expression LESSEQUAL expression
+    (21) expression -> . expression GREATEREQUAL expression
+    (22) expression -> . NOT expression
+    (23) expression -> . NUMBER
+    (24) expression -> . STRING
+    (25) expression -> . TRUE
+    (26) expression -> . FALSE
+    (27) expression -> . IDENTIFIER
+    (28) expression -> . LPAREN expression RPAREN
+    (29) expression -> . MINUS expression
+
+    NOT             shift and go to state 13
+    NUMBER          shift and go to state 14
+    STRING          shift and go to state 15
+    TRUE            shift and go to state 16
+    FALSE           shift and go to state 17
+    IDENTIFIER      shift and go to state 18
+    LPAREN          shift and go to state 19
+    MINUS           shift and go to state 12
+
+    expression                     shift and go to state 71
+
+state 71
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression . LBRACE statements RBRACE
+    (10) expression -> expression . PLUS expression
+    (11) expression -> expression . MINUS expression
+    (12) expression -> expression . MULTIPLY expression
+    (13) expression -> expression . DIVIDE expression
+    (14) expression -> expression . AND expression
+    (15) expression -> expression . OR expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . LESS expression
+    (19) expression -> expression . GREATER expression
+    (20) expression -> expression . LESSEQUAL expression
+    (21) expression -> expression . GREATEREQUAL expression
+
+    LBRACE          shift and go to state 72
+    PLUS            shift and go to state 25
+    MINUS           shift and go to state 26
+    MULTIPLY        shift and go to state 27
+    DIVIDE          shift and go to state 28
+    AND             shift and go to state 29
+    OR              shift and go to state 30
+    EQUAL           shift and go to state 31
+    NOTEQUAL        shift and go to state 32
+    LESS            shift and go to state 33
+    GREATER         shift and go to state 34
+    LESSEQUAL       shift and go to state 35
+    GREATEREQUAL    shift and go to state 36
+
+
+state 72
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE . statements RBRACE
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statements                     shift and go to state 73
+    statement                      shift and go to state 3
+
+state 73
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements . RBRACE
+    (2) statements -> statements . statement
+    (4) statement -> . IDENTIFIER EQUALS expression SEMICOLON
+    (5) statement -> . PRINT expression SEMICOLON
+    (6) statement -> . IF expression LBRACE statements RBRACE
+    (7) statement -> . IF expression LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (8) statement -> . WHILE expression LBRACE statements RBRACE
+    (9) statement -> . FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 74
+    IDENTIFIER      shift and go to state 4
+    PRINT           shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 7
+    FOR             shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 74
+
+    (9) statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .
+
+    IDENTIFIER      reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+    PRINT           reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+    IF              reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+    WHILE           reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+    FOR             reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+    $end            reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 9 (statement -> FOR IDENTIFIER EQUALS expression SEMICOLON expression SEMICOLON IDENTIFIER EQUALS expression LBRACE statements RBRACE .)
+

@@ -1,0 +1,13 @@
+[Unit]
+Description=EasyLang Flask Application
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/easylang
+Environment="PATH=/var/www/easylang/venv/bin"
+ExecStart=/var/www/easylang/venv/bin/gunicorn --workers 3 --bind unix:easylang.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target 
